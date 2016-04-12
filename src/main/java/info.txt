@@ -1,0 +1,3 @@
+Sistem de recomandre a unui meniu in functie de necesarul
+de suplimente de vitamine si minerale pentru o anumita
+afectiune
