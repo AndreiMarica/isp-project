@@ -16,15 +16,21 @@ public class Meniu {
     /**
      * todo doc
      *
-     * @param mese
      * @param suplimente
      * @param grupDeVarsta
      */
     public Meniu(ArrayList<Masa> mese, ArrayList<Supliment> suplimente, GrupDeVarsta grupDeVarsta) {
-        this.mese = mese;
         this.suplimente = suplimente;
         this.grupDeVarsta = grupDeVarsta;
+        this.mese = mese;
     }
+
+    public Meniu(GrupDeVarsta grupDeVarsta) {
+        this.grupDeVarsta = grupDeVarsta;
+        this.mese = new ArrayList<Masa>();
+        this.suplimente = new ArrayList<Supliment>();
+    }
+
 
     public ArrayList<Masa> getMese() {
         return mese;
@@ -54,8 +60,19 @@ public class Meniu {
         //todo
     }
 
+    public void adaugaMasa(Masa masa) {
+        if (masa != null && !mese.contains(masa)) {
+            this.mese.add(masa);
+            System.out.println("S-a adaugat cu succes masa:" + masa.getTipMasa().toString());
+        }
+    }
+
     public void adaugaSupliment(Supliment supliment) {
-        //todo
+        if (supliment != null && !suplimente.contains(supliment)) {
+            this.suplimente.add(supliment);
+            System.out.println("S-a adaugat cu succes suplimentul:" + supliment.getNume());
+        }
+
     }
 
     public void afisareMese() {
