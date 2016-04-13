@@ -2,6 +2,7 @@ package domain;
 
 import domain.util.GrupDeVarsta;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 /**
@@ -57,7 +58,11 @@ public class Meniu {
     }
 
     public void afisare() {
-        //todo
+        System.out.println("Se afiseaza informatiile despre meniu:");
+        afisareMese();
+        afisareSuplimente();
+        System.out.println("Grupa de varsta:");
+        getGrupDeVarsta().afisare();
     }
 
     public void adaugaMasa(Masa masa) {
@@ -76,34 +81,72 @@ public class Meniu {
     }
 
     public void afisareMese() {
-        //todo
+        System.out.println("Se afiseaza mesele:");
+        for (Masa masa : getMese()) {
+            masa.afisare();
+        }
     }
 
     public void afisareSuplimente() {
-        //todo
+        System.out.println("Se afiseaza suplimentele:");
+        for (Supliment supliment : suplimente) {
+            supliment.afisare();
+        }
     }
 
     public void afisareMasaDupaTip(String tipMasa) {
-        //todo
+        for (Masa masa : getMese()) {
+            if (masa.getTipMasa().toString().equals(tipMasa)) {
+                System.out.println("S-a gasit masa cu tipul:" + tipMasa);
+                System.out.println("Se afiseaza informatii despre masa gasita:");
+                masa.afisare();
+                return;
+            }
+        }
+        System.out.println("Nu s-a gasit masa in meniu cu tipul: " + tipMasa);
     }
 
     public void afisareInformatii(String informatii) {
-        //todo
+        //todo logica complexa
     }
 
     public void afisareInformatiiPeMasa(String tipMasa, String informatii) {
-        //todo
+        //todo logica complexa
     }
 
     public void cautaAliment(String aliment) {
-        //todo
+        //todo logica complexa
     }
 
-    public void cautaSupliemntDupaPret(Integer minim, Integer maxim) {
-        //todo
+    public void cautaSuplimentDupaPret(BigDecimal minim, BigDecimal maxim) {
+        if (minim == null || maxim == null) {
+            System.out.println("Nu s-au introdus corect datele de cautare! pret minim sau maxim null");
+            return;
+        } else if (minim.compareTo(maxim) == 1) {
+            System.out.println("S-au introdus date incorecte! minimul este > decat maximul");
+            return;
+        } else if (minim.compareTo(maxim) == 0) {
+            System.out.println("S-au introdus date incorecte! minimul = maximul");
+            return;
+        }
+
+        System.out.println("Se cauta suplimente dupa pretul minim: " + minim + " si pretul maxim:" + maxim);
+
+        Boolean isFoundFlag = false;
+
+        for (Supliment supliment : suplimente) {
+            if ((supliment.getPret().compareTo(maxim) <= 0) && (supliment.getPret().compareTo(minim) >= 0)) {
+                supliment.afisare();
+                isFoundFlag = true;
+            }
+        }
+
+        if (!isFoundFlag) {
+            System.out.println("Nu s-a gasit supliment in intervalul dorit.");
+        }
     }
 
-    public void cautaSupliemntDupaVitamina(String vitamina) {
+    public void cautaSuplimentDupaVitamina(String vitamina) {
         //todo
     }
 
