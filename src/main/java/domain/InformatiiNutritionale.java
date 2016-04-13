@@ -47,7 +47,12 @@ public class InformatiiNutritionale {
         this.fibre = fibre;
     }
 
-    public void afisare(){
-//todo
+    public void afisare() {
+        System.out.println("--Informatii Nutritionale:");
+        System.out.println("grasimi:" + this.grasimi.toString());
+        System.out.println("proteine:" + this.proteine.toString());
+        System.out.println("carbohidrati:" + this.carbohidrati.toString());
+        System.out.println("fibre:" + this.fibre.toString());
+        System.out.println("--------------------------------");
     }
 }
