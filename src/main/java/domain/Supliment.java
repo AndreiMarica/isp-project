@@ -68,16 +68,36 @@ public class Supliment {
         this.pret = pret;
     }
 
-    public void afisare(){
-        //todo
+    public void afisare() {
+        System.out.println("Afisare informatii despre Supliment:");
+        System.out.println("Nume:" + getNume());
+        System.out.println("Producator:");
+        getProducator().afisare();
+        System.out.println("Pret:" + getPret());
+        System.out.println("Gramaj:" + getGramaj());
+        System.out.println("Minerale:");
+        for (Vitamina vitamina : getVitamine()) {
+            vitamina.afisare();
+        }
+        System.out.println("Vitamine:");
+        for (Mineral mineral : getMinerale()) {
+            mineral.afisare();
+        }
+
     }
 
-    public void adaugaVitamina(Vitamina vitamina){
-        //todo
+    public void adaugaVitamina(Vitamina vitamina) {
+        if (vitamine != null && !vitamine.contains(vitamina)) {
+            this.vitamine.add(vitamina);
+            System.out.println("S-a adaugat cu succes vitamina:" + vitamina.getNume());
+        }
     }
 
-    public void adaugaMineral(Mineral mineral){
-        //todo
+    public void adaugaMineral(Mineral mineral) {
+        if (minerale != null && !minerale.contains(mineral)) {
+            this.minerale.add(mineral);
+            System.out.println("S-a adaugat cu succes mineralul:" + mineral.getNume());
+        }
     }
 
 
