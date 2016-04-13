@@ -37,7 +37,7 @@ public class Mineral {
         this.gramaj = gramaj;
     }
 
-    private void afisare() {
+    public void afisare() {
         System.out.println("Mineralul cu numele: " + this.nume
                 + " are rolul: " + this.rol
                 + " si un gramaj de: " + this.gramaj.toString());

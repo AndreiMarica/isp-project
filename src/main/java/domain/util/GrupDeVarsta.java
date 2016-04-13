@@ -7,13 +7,12 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public enum GrupDeVarsta {
-    A(null,null,null,null,null,null,null,null,null,null),
-    B(null,null,null,null,null,null,null,null,null,null),
-    C(null,null,null,null,null,null,null,null,null,null),
-    D(null,null,null,null,null,null,null,null,null,null),
-    E(null,null,null,null,null,null,null,null,null,null),
-    F(null,null,null,null,null,null,null,null,null,null)
-    ;
+    A(null, null, null, null, null, null, null, null, null, null),
+    B(null, null, null, null, null, null, null, null, null, null),
+    C(null, null, null, null, null, null, null, null, null, null),
+    D(null, null, null, null, null, null, null, null, null, null),
+    E(null, null, null, null, null, null, null, null, null, null),
+    F(null, null, null, null, null, null, null, null, null, null);
 
     private final String sex;
     private final Integer varstaMinima;
@@ -34,32 +33,32 @@ public enum GrupDeVarsta {
         return necesarMinerale;
     }
 
-    public Integer getNecesarFibre(){
+    public Integer getNecesarFibre() {
         return necesarFibre;
     }
 
-    public Integer getncesarProteine(){
+    public Integer getncesarProteine() {
         return necesarProteine;
     }
 
-    public Integer getNecesarCarbohidrati(){
+    public Integer getNecesarCarbohidrati() {
         return necesarCarbohidrati;
     }
 
-    public Integer getNecesarGrasimi(){
+    public Integer getNecesarGrasimi() {
         return necesarGrasimi;
     }
 
-    public Integer getVarstaMaxima(){
+    public Integer getVarstaMaxima() {
         return varstaMaxima;
     }
 
-    public Integer getVarstaMinima(){
+    public Integer getVarstaMinima() {
         return varstaMinima;
 
     }
 
-    public String getSex(){
+    public String getSex() {
         return sex;
 
     }
@@ -69,9 +68,7 @@ public enum GrupDeVarsta {
     }
 
 
-
     /**
-     *
      * @param kcal
      * @param necesarMinerale
      * @param necesarVitamine
@@ -103,5 +100,26 @@ public enum GrupDeVarsta {
         this.varstaMaxima = varstaMaxima;
         this.varstaMinima = varstaMinima;
         this.sex = sex;
+    }
+
+    public void afisare() {
+        System.out.println("---Informatii Grupa de Varsta:");
+        System.out.println("Sex: " + getSex());
+        System.out.println("Varsta Minima: " + getVarstaMinima());
+        System.out.println("Varsta Maxima: " + getVarstaMaxima());
+        System.out.println("Necesar Grasimi: " + getNecesarGrasimi());
+        System.out.println("Necesar Carbohidrati: " + getNecesarCarbohidrati());
+        System.out.println("Necesar Proteine: " + getncesarProteine());
+        System.out.println("Necesar Fibre: " + getNecesarFibre());
+        System.out.println("Necesar Vitamine: ");
+        for (Vitamina vitamina : getNecesarVitamine()) {
+            vitamina.afisare();
+        }
+        System.out.println("Necesar Minerale: ");
+        for (Mineral mineral : getNecesarMinerale()) {
+            mineral.afisare();
+        }
+        System.out.println("KCAL: " + getKcal());
+        System.out.println("------------------------");
     }
 }
