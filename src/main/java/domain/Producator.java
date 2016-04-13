@@ -35,7 +35,9 @@ public class Producator {
         this.detalii = detalii;
     }
 
-    public void afisare(){
-//todo
+    public void afisare() {
+        System.out.println("Producatorul cu numele: " + this.nume
+                + " are adresa: " + this.adresa
+                + " ,INFO: " + this.detalii);
     }
 }
