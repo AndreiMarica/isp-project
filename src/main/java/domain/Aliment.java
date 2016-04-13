@@ -24,7 +24,7 @@ public class Aliment {
         this.kcal = kcal;
     }
 
-    public Aliment(){
+    public Aliment() {
         this.vitamine = new ArrayList<Vitamina>();
         this.minerale = new ArrayList<Mineral>();
     }
@@ -94,15 +94,35 @@ public class Aliment {
     }
 
     public void afisare() {
-//todo
+        System.out.println("Informatii despre Aliment:");
+        System.out.println("Nume:" + getNume());
+        getInformatiiNutritionale().afisare();
+        System.out.println("Detalii:" + getDetalii());
+        System.out.println("Vitamine:");
+        for (Vitamina vitamina : getVitamine()) {
+            vitamina.afisare();
+        }
+        System.out.println("Minerale:");
+        for (Mineral mineral : getMinerale()) {
+            mineral.afisare();
+        }
+        System.out.println("Tip de Gatire:" + getTipGatire());
+        System.out.println("Cantintate:" + getCantitate());
+        System.out.println("KCAL:" + getKcal());
     }
 
     public void adaugaVitamina(Vitamina vitamina) {
-//todo
+        if (vitamine != null && !vitamine.contains(vitamina)) {
+            this.vitamine.add(vitamina);
+            System.out.println("S-a adaugat cu succes vitamina:" + vitamina.getNume());
+        }
     }
 
     public void adaugaMineral(Mineral mineral) {
-//todo
+        if (minerale != null && !minerale.contains(mineral)) {
+            this.minerale.add(mineral);
+            System.out.println("S-a adaugat cu succes mineralul:" + mineral.getNume());
+        }
     }
 
 }
