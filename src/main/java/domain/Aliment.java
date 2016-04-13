@@ -24,6 +24,11 @@ public class Aliment {
         this.kcal = kcal;
     }
 
+    public Aliment(){
+        this.vitamine = new ArrayList<Vitamina>();
+        this.minerale = new ArrayList<Mineral>();
+    }
+
     public String getNume() {
         return nume;
     }
