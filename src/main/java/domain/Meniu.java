@@ -5,21 +5,13 @@ import domain.util.GrupDeVarsta;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-/**
- * todo doc
- */
+
 public class Meniu {
 
     private ArrayList<Masa> mese;
     private ArrayList<Supliment> suplimente;
     private GrupDeVarsta grupDeVarsta;
 
-    /**
-     * todo doc
-     *
-     * @param suplimente
-     * @param grupDeVarsta
-     */
     public Meniu(ArrayList<Masa> mese, ArrayList<Supliment> suplimente, GrupDeVarsta grupDeVarsta) {
         this.suplimente = suplimente;
         this.grupDeVarsta = grupDeVarsta;
