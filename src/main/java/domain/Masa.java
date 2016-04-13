@@ -30,10 +30,18 @@ public class Masa {
     }
 
     public void afisare(){
-//todo
+        System.out.println("Afisare informatii despre Masa:");
+        System.out.println("Alimente:");
+        for(Aliment aliment : alimente){
+            aliment.afisare();
+        }
+        System.out.println("Tip masa:"+ getTipMasa().toString());
     }
 
     public void adaugaAliment(Aliment aliment){
-//todo
+        if (alimente != null && !alimente.contains(aliment)) {
+            this.alimente.add(aliment);
+            System.out.println("S-a adaugat cu succes alimentul:" + aliment.getNume());
+        }
     }
 }
