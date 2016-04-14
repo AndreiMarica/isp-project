@@ -13,6 +13,10 @@ public class Masa {
         this.tipMasa = tipMasa;
     }
 
+    public Masa(){
+        this.alimente = new ArrayList<Aliment>();
+    }
+
     public ArrayList<Aliment> getAlimente() {
         return alimente;
     }

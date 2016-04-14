@@ -6,7 +6,7 @@ public class Afectiune {
     private String nume;
     private String descriere;
     private ArrayList<Simptom> simptome;
-    private ArrayList<Meniu> meniu;
+    private ArrayList<Meniu> meniuri;
 
     public String getNume() {
         return nume;
@@ -32,30 +32,45 @@ public class Afectiune {
         this.simptome = simptome;
     }
 
-    public ArrayList<Meniu> getMeniu() {
-        return meniu;
+    public ArrayList<Meniu> getMeniuri() {
+        return meniuri;
     }
 
-    public void setMeniu(ArrayList<Meniu> meniu) {
-        this.meniu = meniu;
+    public void setMeniuri(ArrayList<Meniu> meniuri) {
+        this.meniuri = meniuri;
     }
 
-    public Afectiune(String nume, String descriere, ArrayList<Simptom> simptome, ArrayList<Meniu> meniu) {
+    public Afectiune(String nume, String descriere, ArrayList<Simptom> simptome, ArrayList<Meniu> meniuri) {
         this.nume = nume;
         this.descriere = descriere;
         this.simptome = simptome;
-        this.meniu = meniu;
+        this.meniuri = meniuri;
     }
 
-    public void afisare(){
+    public Afectiune() {
+        this.simptome = new ArrayList<Simptom>();
+        this.meniuri = new ArrayList<Meniu>();
+    }
+
+    public void afisare() {
+        System.out.println("Se afiseaza informatii despre afectiune:");
+        System.out.println("Nume:" + getNume());
+        System.out.println("Descriere:" + getDescriere());
+        System.out.println("Simptome:");
+        for (Simptom simptom : simptome) {
+            simptom.afisare();
+        }
+        System.out.println("Meniuri:");
+        for (Meniu meniu : meniuri) {
+            meniu.afisare();
+        }
+    }
+
+    public void adauaSimptom(Simptom simptom) {
 //todo
     }
 
-    public void adauaSimptom(Simptom simptom){
-//todo
-    }
-
-    public void adaugaMeniu(Meniu meniu){
+    public void adaugaMeniu(Meniu meniu) {
 //todo
     }
 
