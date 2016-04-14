@@ -2,7 +2,8 @@ package domain.util;
 
 public enum SexPersoana {
     M("M"),
-    F("F")
+    F("F"),
+    NESELECTAT("NESELECTAT")
     ;
 
     private final String text;

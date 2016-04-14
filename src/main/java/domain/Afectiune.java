@@ -1,5 +1,7 @@
 package domain;
 
+import domain.util.SexPersoana;
+
 import java.util.ArrayList;
 
 public class Afectiune {
@@ -63,6 +65,54 @@ public class Afectiune {
         System.out.println("Meniuri:");
         for (Meniu meniu : meniuri) {
             meniu.afisare();
+        }
+    }
+
+    public void afisare(SexPersoana sex, Integer varsta) {
+        System.out.println("Se afiseaza informatii despre afectiune:");
+        System.out.println("Nume:" + getNume());
+        System.out.println("Descriere:" + getDescriere());
+        System.out.println("Simptome:");
+        for (Simptom simptom : simptome) {
+            simptom.afisare();
+        }
+        System.out.println("Meniuri:");
+        for (Meniu meniu : meniuri) {
+            if (meniu.getGrupDeVarsta().getSex().equals(sex.toString()) &&
+                    (meniu.getGrupDeVarsta().getVarstaMinima() <= varsta) &&
+                    (meniu.getGrupDeVarsta().getVarstaMaxima() >= varsta))
+                meniu.afisare();
+        }
+    }
+
+    public void afisare(SexPersoana sex) {
+        System.out.println("Se afiseaza informatii despre afectiune:");
+        System.out.println("Nume:" + getNume());
+        System.out.println("Descriere:" + getDescriere());
+        System.out.println("Simptome:");
+        for (Simptom simptom : simptome) {
+            simptom.afisare();
+        }
+        System.out.println("Meniuri:");
+        for (Meniu meniu : meniuri) {
+            if (meniu.getGrupDeVarsta().getSex().equals(sex.toString()))
+                meniu.afisare();
+        }
+    }
+
+    public void afisare(Integer varsta) {
+        System.out.println("Se afiseaza informatii despre afectiune:");
+        System.out.println("Nume:" + getNume());
+        System.out.println("Descriere:" + getDescriere());
+        System.out.println("Simptome:");
+        for (Simptom simptom : simptome) {
+            simptom.afisare();
+        }
+        System.out.println("Meniuri:");
+        for (Meniu meniu : meniuri) {
+            if ((meniu.getGrupDeVarsta().getVarstaMinima() <= varsta) &&
+                    (meniu.getGrupDeVarsta().getVarstaMaxima() >= varsta))
+                meniu.afisare();
         }
     }
 

@@ -1,5 +1,6 @@
 package domain;
 
+import domain.inregistrari.InregistrariAfectiuni;
 import domain.util.SexPersoana;
 
 public class Persoana {
@@ -9,6 +10,16 @@ public class Persoana {
     public Persoana(Integer varsta, SexPersoana sex) {
         this.varsta = varsta;
         this.sex = sex;
+    }
+
+    public Persoana(SexPersoana sex) {
+        this.sex = sex;
+        this.varsta = 0;
+    }
+
+    public Persoana(Integer varsta) {
+        this.varsta = varsta;
+        this.sex = SexPersoana.NESELECTAT;
     }
 
     public Integer getVarsta() {
@@ -28,11 +39,32 @@ public class Persoana {
     }
 
     public void afisare() {
-//todo
+        System.out.println("Se afiseaza informatii despre persoana:");
+        System.out.println("Varsta: " + (getVarsta() == 0 ? "Neprecizat" : getVarsta()));
+        System.out.println("Sex:" + getSex().toString());
     }
 
     public void cautaAfectiune(String numeAfectiune) {
-//todo
+        if (InregistrariAfectiuni.inregistrariAfectiuni.isEmpty()) {
+            System.out.println("Nu s-au inserat inregistrari!");
+            return;
+        }
+
+        if (numeAfectiune != null && InregistrariAfectiuni.inregistrariAfectiuni.containsKey(numeAfectiune)) {
+            Afectiune afectiune = InregistrariAfectiuni.inregistrariAfectiuni.get(numeAfectiune);
+            if (!sex.toString().equals(SexPersoana.NESELECTAT.toString()) && varsta > 0) {
+                afectiune.afisare(sex, varsta);
+            } else if (sex.toString().equals(SexPersoana.NESELECTAT.toString())) {
+                afectiune.afisare(sex);
+            } else if (varsta == 0) {
+                afectiune.afisare(varsta);
+            } else {
+                afectiune.afisare();
+            }
+
+        } else {
+            System.out.println("Nu s-a gasit afectiunea precizata, va rugam selectati una din urmatoarele afectiuni");
+        }
     }
 
     public void afisareNecesar() {
