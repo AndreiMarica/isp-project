@@ -117,11 +117,17 @@ public class Afectiune {
     }
 
     public void adauaSimptom(Simptom simptom) {
-//todo
+        if (simptom != null && !simptome.contains(simptom)) {
+            this.simptome.add(simptom);
+            System.out.println("S-a adaugat cu succes simptomul:" + simptom.getDescriere());
+        }
     }
 
     public void adaugaMeniu(Meniu meniu) {
-//todo
+        if (meniu != null && !meniuri.contains(meniu)) {
+            this.meniuri.add(meniu);
+            System.out.println("S-a adaugat cu succes meniul");
+        }
     }
 
 }
