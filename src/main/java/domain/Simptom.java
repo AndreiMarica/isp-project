@@ -28,6 +28,8 @@ public class Simptom {
     }
 
     public void afisare(){
-        //todo
+        System.out.println("Se afiseaza informatii despre simptom:");
+        System.out.println("Descriere:" + getDescriere());
+        System.out.println("Intensitatea simptomulu: "+ getIntensitate().toString());
     }
 }
