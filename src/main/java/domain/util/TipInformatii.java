@@ -5,8 +5,7 @@ public enum TipInformatii {
     proteine("proteine"),
     carbohidrati("carbohidrati"),
     fibre("fibre"),
-    kcal("kcal")
-    ;
+    kcal("kcal");
 
     private final String text;
 

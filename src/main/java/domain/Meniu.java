@@ -1,6 +1,6 @@
 package domain;
 
-import domain.util.GrupDeVarsta;
+import domain.util.GrupaDeVarsta;
 import domain.util.TipInformatii;
 import domain.util.TipMasa;
 
@@ -13,16 +13,16 @@ public class Meniu {
 
     private ArrayList<Masa> mese;
     private ArrayList<Supliment> suplimente;
-    private GrupDeVarsta grupDeVarsta;
+    private GrupaDeVarsta grupaDeVarsta;
 
-    public Meniu(ArrayList<Masa> mese, ArrayList<Supliment> suplimente, GrupDeVarsta grupDeVarsta) {
+    public Meniu(ArrayList<Masa> mese, ArrayList<Supliment> suplimente, GrupaDeVarsta grupaDeVarsta) {
         this.suplimente = suplimente;
-        this.grupDeVarsta = grupDeVarsta;
+        this.grupaDeVarsta = grupaDeVarsta;
         this.mese = mese;
     }
 
-    public Meniu(GrupDeVarsta grupDeVarsta) {
-        this.grupDeVarsta = grupDeVarsta;
+    public Meniu(GrupaDeVarsta grupaDeVarsta) {
+        this.grupaDeVarsta = grupaDeVarsta;
         this.mese = new ArrayList<Masa>();
         this.suplimente = new ArrayList<Supliment>();
     }
@@ -44,12 +44,12 @@ public class Meniu {
         this.suplimente = suplimente;
     }
 
-    public GrupDeVarsta getGrupDeVarsta() {
-        return grupDeVarsta;
+    public GrupaDeVarsta getGrupaDeVarsta() {
+        return grupaDeVarsta;
     }
 
-    public void setGrupDeVarsta(GrupDeVarsta grupDeVarsta) {
-        this.grupDeVarsta = grupDeVarsta;
+    public void setGrupaDeVarsta(GrupaDeVarsta grupaDeVarsta) {
+        this.grupaDeVarsta = grupaDeVarsta;
     }
 
     public void afisare() {
@@ -57,7 +57,7 @@ public class Meniu {
         afisareMese();
         afisareSuplimente();
         System.out.println("Grupa de varsta:");
-        getGrupDeVarsta().afisare();
+        getGrupaDeVarsta().afisare();
     }
 
     public void adaugaMasa(Masa masa) {

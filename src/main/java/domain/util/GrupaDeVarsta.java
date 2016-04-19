@@ -6,7 +6,7 @@ import domain.Vitamina;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-public enum GrupDeVarsta {
+public enum GrupaDeVarsta {
     A(null, null, null, null, null, null, null, null, null, null),
     B(null, null, null, null, null, null, null, null, null, null),
     C(null, null, null, null, null, null, null, null, null, null),
@@ -67,6 +67,16 @@ public enum GrupDeVarsta {
         return kcal;
     }
 
+    public static void getByGenderAndAge(String gender, Integer age) {
+        for (GrupaDeVarsta grupaDeVarsta : GrupaDeVarsta.values()) {
+            if (grupaDeVarsta.getSex().equals(gender) && age <= grupaDeVarsta.getVarstaMaxima() && age >= grupaDeVarsta.getVarstaMinima()) {
+                System.out.println("Se afiseaza informatiile despre necesar conform sexulu: " + gender + " si varstei de:" + age);
+                System.out.println("Informatiile se regasesc in grupa de varsta din:" + grupaDeVarsta.getSex() + " varsta minima:" + grupaDeVarsta.getVarstaMinima() + " varsta maxima:" + grupaDeVarsta.getVarstaMaxima());
+                grupaDeVarsta.afisare();
+            }
+        }
+    }
+
 
     /**
      * @param kcal
@@ -80,16 +90,16 @@ public enum GrupDeVarsta {
      * @param varstaMinima
      * @param sex
      */
-    GrupDeVarsta(BigDecimal kcal,
-                 ArrayList<Mineral> necesarMinerale,
-                 ArrayList<Vitamina> necesarVitamine,
-                 Integer necesarFibre,
-                 Integer necesarProteine,
-                 Integer necesarCarbohidrati,
-                 Integer necesarGrasimi,
-                 Integer varstaMaxima,
-                 Integer varstaMinima,
-                 String sex) {
+    GrupaDeVarsta(BigDecimal kcal,
+                  ArrayList<Mineral> necesarMinerale,
+                  ArrayList<Vitamina> necesarVitamine,
+                  Integer necesarFibre,
+                  Integer necesarProteine,
+                  Integer necesarCarbohidrati,
+                  Integer necesarGrasimi,
+                  Integer varstaMaxima,
+                  Integer varstaMinima,
+                  String sex) {
         this.kcal = kcal;
         this.necesarMinerale = necesarMinerale;
         this.necesarVitamine = necesarVitamine;

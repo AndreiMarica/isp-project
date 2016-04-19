@@ -1,6 +1,7 @@
 package domain;
 
 import domain.inregistrari.InregistrariAfectiuni;
+import domain.util.GrupaDeVarsta;
 import domain.util.SexPersoana;
 
 public class Persoana {
@@ -68,7 +69,9 @@ public class Persoana {
     }
 
     public void afisareNecesar() {
-//todo
+        if (!sex.toString().equals(SexPersoana.NESELECTAT.toString()) && varsta > 0){
+            GrupaDeVarsta.getByGenderAndAge(sex.toString(),varsta);
+        }
     }
 
 

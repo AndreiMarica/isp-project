@@ -78,9 +78,9 @@ public class Afectiune {
         }
         System.out.println("Meniuri:");
         for (Meniu meniu : meniuri) {
-            if (meniu.getGrupDeVarsta().getSex().equals(sex.toString()) &&
-                    (meniu.getGrupDeVarsta().getVarstaMinima() <= varsta) &&
-                    (meniu.getGrupDeVarsta().getVarstaMaxima() >= varsta))
+            if (meniu.getGrupaDeVarsta().getSex().equals(sex.toString()) &&
+                    (meniu.getGrupaDeVarsta().getVarstaMinima() <= varsta) &&
+                    (meniu.getGrupaDeVarsta().getVarstaMaxima() >= varsta))
                 meniu.afisare();
         }
     }
@@ -95,7 +95,7 @@ public class Afectiune {
         }
         System.out.println("Meniuri:");
         for (Meniu meniu : meniuri) {
-            if (meniu.getGrupDeVarsta().getSex().equals(sex.toString()))
+            if (meniu.getGrupaDeVarsta().getSex().equals(sex.toString()))
                 meniu.afisare();
         }
     }
@@ -110,8 +110,8 @@ public class Afectiune {
         }
         System.out.println("Meniuri:");
         for (Meniu meniu : meniuri) {
-            if ((meniu.getGrupDeVarsta().getVarstaMinima() <= varsta) &&
-                    (meniu.getGrupDeVarsta().getVarstaMaxima() >= varsta))
+            if ((meniu.getGrupaDeVarsta().getVarstaMinima() <= varsta) &&
+                    (meniu.getGrupaDeVarsta().getVarstaMaxima() >= varsta))
                 meniu.afisare();
         }
     }
