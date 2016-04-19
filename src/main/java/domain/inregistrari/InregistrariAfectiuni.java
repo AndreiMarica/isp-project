@@ -56,15 +56,35 @@ public class InregistrariAfectiuni {
         Masa masa1 = new Masa((ArrayList<Aliment>) Arrays.asList(aliment1, aliment2, aliment3), TipMasa.cina);
 
 
-        Mineral mineral1 = new Mineral("mineral1", "energizant", new BigDecimal("15"));
-        Mineral mineral2 = new Mineral("mineral2", "energizant", new BigDecimal("15"));
-        Mineral mineral3 = new Mineral("mineral3", "energizant", new BigDecimal("15"));
-        Mineral mineral4 = new Mineral("mineral4", "energizant", new BigDecimal("15"));
+        Mineral mineral1 = new Mineral("mineral1",
+                "energizant",
+                new BigDecimal("15"));
+        Mineral mineral2 = new Mineral("mineral2",
+                "energizant",
+                new BigDecimal("15"));
+        Mineral mineral3 = new Mineral("mineral3",
+                "energizant",
+                new BigDecimal("15"));
+        Mineral mineral4 = new Mineral("mineral4",
+                "energizant",
+                new BigDecimal("15"));
 
-        Vitamina vitamina1 = new Vitamina("Vitamina1", "DeficitVitamina1", "ExcesVitamina1", new BigDecimal("15"));
-        Vitamina vitamina2 = new Vitamina("Vitamina2", "DeficitVitamina2", "ExcesVitamina2", new BigDecimal("15"));
-        Vitamina vitamina3 = new Vitamina("Vitamina3", "DeficitVitamina3", "ExcesVitamina3", new BigDecimal("15"));
-        Vitamina vitamina4 = new Vitamina("Vitamina4", "DeficitVitamina4", "ExcesVitamina4", new BigDecimal("15"));
+        Vitamina vitamina1 = new Vitamina("Vitamina1",
+                "DeficitVitamina1",
+                "ExcesVitamina1",
+                new BigDecimal("15"));
+        Vitamina vitamina2 = new Vitamina("Vitamina2",
+                "DeficitVitamina2",
+                "ExcesVitamina2",
+                new BigDecimal("15"));
+        Vitamina vitamina3 = new Vitamina("Vitamina3",
+                "DeficitVitamina3",
+                "ExcesVitamina3",
+                new BigDecimal("15"));
+        Vitamina vitamina4 = new Vitamina("Vitamina4",
+                "DeficitVitamina4",
+                "ExcesVitamina4",
+                new BigDecimal("15"));
 
         ArrayList<Vitamina> vitaminaList = (ArrayList<Vitamina>) Arrays.asList(vitamina1, vitamina2, vitamina3, vitamina4);
         ArrayList<Mineral> mineralList = (ArrayList<Mineral>) Arrays.asList(mineral1, mineral2, mineral3, mineral4);
@@ -73,9 +93,15 @@ public class InregistrariAfectiuni {
 
         Meniu meniu = new Meniu((ArrayList<Masa>) Arrays.asList(masa1), (ArrayList<Supliment>) Arrays.asList(supliment1), GrupaDeVarsta.A);
 
-        Simptom simptom1 = new Simptom("Doare", IntensitateSimptom.mediu);
-        Simptom simptom2 = new Simptom("Febra", IntensitateSimptom.slab);
-        Afectiune afectiune1 = new Afectiune("Nume Afectiune 1", "Descriere Afectiune 1", (ArrayList<Simptom>) Arrays.asList(simptom1, simptom2), (ArrayList<Meniu>) Arrays.asList(meniu));
+        Simptom simptom1 = new Simptom("Doare",
+                IntensitateSimptom.mediu);
+        Simptom simptom2 = new Simptom("Febra",
+                IntensitateSimptom.slab);
+
+        Afectiune afectiune1 = new Afectiune("Nume Afectiune 1",
+                "Descriere Afectiune 1",
+                (ArrayList<Simptom>) Arrays.asList(simptom1, simptom2),
+                (ArrayList<Meniu>) Arrays.asList(meniu));
 
         adaugaAfectiuneLaInregistrari(afectiune1);
     }
