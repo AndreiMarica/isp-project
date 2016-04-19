@@ -1,9 +1,12 @@
 package domain;
 
 import domain.util.GrupDeVarsta;
+import domain.util.TipInformatii;
+import domain.util.TipMasa;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class Meniu {
@@ -99,15 +102,110 @@ public class Meniu {
     }
 
     public void afisareInformatii(String informatii) {
-        //todo logica complexa
+        BigDecimal info = new BigDecimal("0");
+        if (informatii.equals(TipInformatii.carbohidrati.toString())) {
+            for (Masa masa : getMese()) {
+                for (Aliment aliment : masa.getAlimente()) {
+                    info = info.add(aliment.getInformatiiNutritionale().getCarbohidrati());
+                }
+            }
+        } else if (informatii.equals(TipInformatii.fibre.toString())) {
+            for (Masa masa : getMese()) {
+                for (Aliment aliment : masa.getAlimente()) {
+                    info = info.add(aliment.getInformatiiNutritionale().getFibre());
+                }
+            }
+        } else if (informatii.equals(TipInformatii.grasimi.toString())) {
+            for (Masa masa : getMese()) {
+                for (Aliment aliment : masa.getAlimente()) {
+                    info = info.add(aliment.getInformatiiNutritionale().getGrasimi());
+                }
+            }
+        } else if (informatii.equals(TipInformatii.kcal.toString())) {
+            for (Masa masa : getMese()) {
+                for (Aliment aliment : masa.getAlimente()) {
+                    info = info.add(aliment.getKcal());
+                }
+            }
+        } else if (informatii.equals(TipInformatii.proteine.toString())) {
+            for (Masa masa : getMese()) {
+                for (Aliment aliment : masa.getAlimente()) {
+                    info = info.add(aliment.getInformatiiNutritionale().getProteine());
+                }
+            }
+        } else {
+            System.out.println("Nu exista acest tip de informatii");
+            return;
+        }
+
+        System.out.println("Totalul de informatii despre: " + informatii + " este:" + info);
     }
 
     public void afisareInformatiiPeMasa(String tipMasa, String informatii) {
-        //todo logica complexa
+        BigDecimal info = new BigDecimal("0");
+        if (Arrays.asList(TipMasa.mic_dejun.toString(), TipMasa.cina.toString(), TipMasa.pranz.toString()).contains(tipMasa)) {
+            if (informatii.equals(TipInformatii.carbohidrati.toString())) {
+                for (Masa masa : getMese()) {
+                    if (masa.getTipMasa().toString().equals(tipMasa)) {
+                        for (Aliment aliment : masa.getAlimente()) {
+                            info = info.add(aliment.getInformatiiNutritionale().getCarbohidrati());
+                        }
+                    }
+                }
+            } else if (informatii.equals(TipInformatii.fibre.toString())) {
+                for (Masa masa : getMese()) {
+                    if (masa.getTipMasa().toString().equals(tipMasa)) {
+                        for (Aliment aliment : masa.getAlimente()) {
+                            info = info.add(aliment.getInformatiiNutritionale().getFibre());
+                        }
+                    }
+                }
+            } else if (informatii.equals(TipInformatii.grasimi.toString())) {
+                for (Masa masa : getMese()) {
+                    if (masa.getTipMasa().toString().equals(tipMasa)) {
+                        for (Aliment aliment : masa.getAlimente()) {
+                            info = info.add(aliment.getInformatiiNutritionale().getGrasimi());
+                        }
+                    }
+                }
+            } else if (informatii.equals(TipInformatii.kcal.toString())) {
+                for (Masa masa : getMese()) {
+                    if (masa.getTipMasa().toString().equals(tipMasa)) {
+                        for (Aliment aliment : masa.getAlimente()) {
+                            info = info.add(aliment.getKcal());
+                        }
+                    }
+                }
+            } else if (informatii.equals(TipInformatii.proteine.toString())) {
+                for (Masa masa : getMese()) {
+                    if (masa.getTipMasa().toString().equals(tipMasa)) {
+                        for (Aliment aliment : masa.getAlimente()) {
+                            info = info.add(aliment.getInformatiiNutritionale().getProteine());
+                        }
+                    }
+                }
+            } else {
+                System.out.println("Nu exista acest tip de informatii");
+                return;
+            }
+        } else {
+            System.out.println("Nu exista acest tip de masa");
+            return;
+        }
+        System.out.println("Totalul de informatii de tip: " + informatii + " pentru masa de tip: " + tipMasa + " este urmatorul: " + info);
     }
 
     public void cautaAliment(String aliment) {
-        //todo logica complexa
+        if (aliment != null && aliment.matches("^[a-zA-Z]*$")) {
+            for (Masa masa : getMese()) {
+                for (Aliment alimentDinMeniu : masa.getAlimente()) {
+                    if (alimentDinMeniu.getNume().equals(aliment)) {
+                        System.out.println("S-a gasit alimentul cautat in masa de tip:" + masa.getTipMasa().toString());
+                        alimentDinMeniu.afisare();
+                    }
+                }
+            }
+        }
     }
 
     public void cautaSuplimentDupaPret(BigDecimal minim, BigDecimal maxim) {
