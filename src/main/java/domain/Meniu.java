@@ -237,11 +237,29 @@ public class Meniu {
     }
 
     public void cautaSuplimentDupaVitamina(String vitamina) {
-        //todo
+        if (vitamina != null) {
+            for (Supliment supliment : getSuplimente()) {
+                for (Vitamina vitmn : supliment.getVitamine()) {
+                    if (vitmn.getNume().equals(vitamina)) {
+                        System.out.println("Supliment care contine vitamina:" + vitamina);
+                        supliment.afisare();
+                    }
+                }
+            }
+        }
     }
 
     public void cautaSuplimentDupaMineral(String mineral) {
-        //todo
+        if (mineral != null) {
+            for (Supliment supliment : getSuplimente()) {
+                for (Mineral minrl : supliment.getMinerale()) {
+                    if (minrl.getNume().equals(mineral)) {
+                        System.out.println("Supliment care contine mineralul:" + mineral);
+                        minrl.afisare();
+                    }
+                }
+            }
+        }
     }
 }
 
