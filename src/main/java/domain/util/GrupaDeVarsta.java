@@ -78,18 +78,6 @@ public enum GrupaDeVarsta {
     }
 
 
-    /**
-     * @param kcal
-     * @param necesarMinerale
-     * @param necesarVitamine
-     * @param necesarFibre
-     * @param necesarProteine
-     * @param necesarCarbohidrati
-     * @param necesarGrasimi
-     * @param varstaMaxima
-     * @param varstaMinima
-     * @param sex
-     */
     GrupaDeVarsta(BigDecimal kcal,
                   ArrayList<Mineral> necesarMinerale,
                   ArrayList<Vitamina> necesarVitamine,
