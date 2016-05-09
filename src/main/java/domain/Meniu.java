@@ -7,15 +7,16 @@ import domain.util.TipMasa;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 public class Meniu {
 
-    private ArrayList<Masa> mese;
-    private ArrayList<Supliment> suplimente;
+    private List<Masa> mese;
+    private List<Supliment> suplimente;
     private GrupaDeVarsta grupaDeVarsta;
 
-    public Meniu(ArrayList<Masa> mese, ArrayList<Supliment> suplimente, GrupaDeVarsta grupaDeVarsta) {
+    public Meniu(List<Masa> mese, List<Supliment> suplimente, GrupaDeVarsta grupaDeVarsta) {
         this.suplimente = suplimente;
         this.grupaDeVarsta = grupaDeVarsta;
         this.mese = mese;
@@ -28,7 +29,7 @@ public class Meniu {
     }
 
 
-    public ArrayList<Masa> getMese() {
+    public List<Masa> getMese() {
         return mese;
     }
 
@@ -36,7 +37,7 @@ public class Meniu {
         this.mese = mese;
     }
 
-    public ArrayList<Supliment> getSuplimente() {
+    public List<Supliment> getSuplimente() {
         return suplimente;
     }
 
@@ -255,7 +256,7 @@ public class Meniu {
                 for (Mineral minrl : supliment.getMinerale()) {
                     if (minrl.getNume().equals(mineral)) {
                         System.out.println("Supliment care contine mineralul:" + mineral);
-                        minrl.afisare();
+                        supliment.afisare();
                     }
                 }
             }

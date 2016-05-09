@@ -2,16 +2,17 @@ package domain;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Supliment {
-    private ArrayList<Vitamina> vitamine;
-    private ArrayList<Mineral> minerale;
+    private List<Vitamina> vitamine;
+    private List<Mineral> minerale;
     private Integer gramaj;
     private String nume;
     private Producator producator;
     private BigDecimal pret;
 
-    public Supliment(ArrayList<Vitamina> vitamine, ArrayList<Mineral> minerale, Integer gramaj, String nume, Producator producator, BigDecimal pret) {
+    public Supliment(List<Vitamina> vitamine, List<Mineral> minerale, Integer gramaj, String nume, Producator producator, BigDecimal pret) {
         this.vitamine = vitamine;
         this.minerale = minerale;
         this.gramaj = gramaj;
@@ -20,7 +21,7 @@ public class Supliment {
         this.pret = pret;
     }
 
-    public ArrayList<Vitamina> getVitamine() {
+    public List<Vitamina> getVitamine() {
         return vitamine;
     }
 
@@ -28,7 +29,7 @@ public class Supliment {
         this.vitamine = vitamine;
     }
 
-    public ArrayList<Mineral> getMinerale() {
+    public List<Mineral> getMinerale() {
         return minerale;
     }
 
@@ -75,11 +76,11 @@ public class Supliment {
         getProducator().afisare();
         System.out.println("Pret:" + getPret());
         System.out.println("Gramaj:" + getGramaj());
-        System.out.println("Minerale:");
+        System.out.println("Vitamine:");
         for (Vitamina vitamina : getVitamine()) {
             vitamina.afisare();
         }
-        System.out.println("Vitamine:");
+        System.out.println("Minerale:");
         for (Mineral mineral : getMinerale()) {
             mineral.afisare();
         }

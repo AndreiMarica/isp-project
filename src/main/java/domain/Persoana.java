@@ -45,10 +45,10 @@ public class Persoana {
         System.out.println("Sex:" + getSex().toString());
     }
 
-    public void cautaAfectiune(String numeAfectiune) {
+    public Afectiune cautaAfectiune(String numeAfectiune) {
         if (InregistrariAfectiuni.inregistrariAfectiuni.isEmpty()) {
             System.out.println("Nu s-au inserat inregistrari!");
-            return;
+            return null;
         }
 
         if (numeAfectiune != null && InregistrariAfectiuni.inregistrariAfectiuni.containsKey(numeAfectiune)) {
@@ -62,15 +62,17 @@ public class Persoana {
             } else {
                 afectiune.afisare();
             }
+            return afectiune;
 
         } else {
             System.out.println("Nu s-a gasit afectiunea precizata, va rugam selectati una din urmatoarele afectiuni");
         }
+        return null;
     }
 
     public void afisareNecesar() {
-        if (!sex.toString().equals(SexPersoana.NESELECTAT.toString()) && varsta > 0){
-            GrupaDeVarsta.getByGenderAndAge(sex.toString(),varsta);
+        if (!sex.toString().equals(SexPersoana.NESELECTAT.toString()) && varsta > 0) {
+            GrupaDeVarsta.getByGenderAndAge(sex.toString(), varsta);
         }
     }
 

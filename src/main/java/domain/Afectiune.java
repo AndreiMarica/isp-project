@@ -3,12 +3,13 @@ package domain;
 import domain.util.SexPersoana;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Afectiune {
     private String nume;
     private String descriere;
-    private ArrayList<Simptom> simptome;
-    private ArrayList<Meniu> meniuri;
+    private List<Simptom> simptome;
+    private List<Meniu> meniuri;
 
     public String getNume() {
         return nume;
@@ -26,7 +27,7 @@ public class Afectiune {
         this.descriere = descriere;
     }
 
-    public ArrayList<Simptom> getSimptome() {
+    public List<Simptom> getSimptome() {
         return simptome;
     }
 
@@ -34,7 +35,7 @@ public class Afectiune {
         this.simptome = simptome;
     }
 
-    public ArrayList<Meniu> getMeniuri() {
+    public List<Meniu> getMeniuri() {
         return meniuri;
     }
 
@@ -42,7 +43,7 @@ public class Afectiune {
         this.meniuri = meniuri;
     }
 
-    public Afectiune(String nume, String descriere, ArrayList<Simptom> simptome, ArrayList<Meniu> meniuri) {
+    public Afectiune(String nume, String descriere, List<Simptom> simptome, List<Meniu> meniuri) {
         this.nume = nume;
         this.descriere = descriere;
         this.simptome = simptome;

@@ -3,12 +3,13 @@ package domain;
 import domain.util.TipMasa;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Masa {
-    private ArrayList<Aliment> alimente;
+    private List<Aliment> alimente;
     private TipMasa tipMasa;
 
-    public Masa(ArrayList<Aliment> alimente, TipMasa tipMasa) {
+    public Masa(List<Aliment> alimente, TipMasa tipMasa) {
         this.alimente = alimente;
         this.tipMasa = tipMasa;
     }
@@ -17,7 +18,7 @@ public class Masa {
         this.alimente = new ArrayList<Aliment>();
     }
 
-    public ArrayList<Aliment> getAlimente() {
+    public List<Aliment> getAlimente() {
         return alimente;
     }
 

@@ -2,18 +2,19 @@ package domain;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Aliment {
     private String nume;
     private InformatiiNutritionale informatiiNutritionale;
     private String detalii;
-    private ArrayList<Vitamina> vitamine;
-    private ArrayList<Mineral> minerale;
+    private List<Vitamina> vitamine;
+    private List<Mineral> minerale;
     private String tipGatire;
     private BigDecimal cantitate;
     private BigDecimal kcal;
 
-    public Aliment(String nume, InformatiiNutritionale informatiiNutritionale, String detalii, ArrayList<Vitamina> vitamine, ArrayList<Mineral> minerale, String tipGatire, BigDecimal cantitate, BigDecimal kcal) {
+    public Aliment(String nume, InformatiiNutritionale informatiiNutritionale, String detalii, List<Vitamina> vitamine, List<Mineral> minerale, String tipGatire, BigDecimal cantitate, BigDecimal kcal) {
         this.nume = nume;
         this.informatiiNutritionale = informatiiNutritionale;
         this.detalii = detalii;
@@ -53,7 +54,7 @@ public class Aliment {
         this.detalii = detalii;
     }
 
-    public ArrayList<Vitamina> getVitamine() {
+    public List<Vitamina> getVitamine() {
         return vitamine;
     }
 
@@ -61,7 +62,7 @@ public class Aliment {
         this.vitamine = vitamine;
     }
 
-    public ArrayList<Mineral> getMinerale() {
+    public List<Mineral> getMinerale() {
         return minerale;
     }
 

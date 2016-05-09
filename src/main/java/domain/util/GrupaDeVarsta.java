@@ -2,12 +2,25 @@ package domain.util;
 
 import domain.Mineral;
 import domain.Vitamina;
+import factory.MineraleFactory;
+import factory.VitamineFactory;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public enum GrupaDeVarsta {
-    A(null, null, null, null, null, null, null, null, null, null),
+    A(new BigDecimal("100"),
+            Arrays.asList(MineraleFactory.mineral1, MineraleFactory.mineral2),
+            Arrays.asList(VitamineFactory.vitaminaA, VitamineFactory.vitaminaB14),
+            100,
+            150,
+            250,
+            350,
+            30,
+            2,
+            SexPersoana.F.toString()
+    ),
     B(null, null, null, null, null, null, null, null, null, null),
     C(null, null, null, null, null, null, null, null, null, null),
     D(null, null, null, null, null, null, null, null, null, null),
@@ -21,15 +34,15 @@ public enum GrupaDeVarsta {
     private final Integer necesarCarbohidrati;
     private final Integer necesarProteine;
     private final Integer necesarFibre;
-    private final ArrayList<Vitamina> necesarVitamine;
-    private final ArrayList<Mineral> necesarMinerale;
+    private final List<Vitamina> necesarVitamine;
+    private final List<Mineral> necesarMinerale;
     private final BigDecimal kcal;
 
-    public ArrayList<Vitamina> getNecesarVitamine() {
+    public List<Vitamina> getNecesarVitamine() {
         return necesarVitamine;
     }
 
-    public ArrayList<Mineral> getNecesarMinerale() {
+    public List<Mineral> getNecesarMinerale() {
         return necesarMinerale;
     }
 
@@ -69,18 +82,23 @@ public enum GrupaDeVarsta {
 
     public static void getByGenderAndAge(String gender, Integer age) {
         for (GrupaDeVarsta grupaDeVarsta : GrupaDeVarsta.values()) {
-            if (grupaDeVarsta.getSex().equals(gender) && age <= grupaDeVarsta.getVarstaMaxima() && age >= grupaDeVarsta.getVarstaMinima()) {
+            if (grupaDeVarsta.getVarstaMaxima() != null &&
+                    grupaDeVarsta.getVarstaMinima() != null &&
+                    grupaDeVarsta.getSex().equals(gender) &&
+                    age <= grupaDeVarsta.getVarstaMaxima() &&
+                    age >= grupaDeVarsta.getVarstaMinima()) {
                 System.out.println("Se afiseaza informatiile despre necesar conform sexulu: " + gender + " si varstei de:" + age);
                 System.out.println("Informatiile se regasesc in grupa de varsta din:" + grupaDeVarsta.getSex() + " varsta minima:" + grupaDeVarsta.getVarstaMinima() + " varsta maxima:" + grupaDeVarsta.getVarstaMaxima());
                 grupaDeVarsta.afisare();
+                break;
             }
         }
     }
 
 
     GrupaDeVarsta(BigDecimal kcal,
-                  ArrayList<Mineral> necesarMinerale,
-                  ArrayList<Vitamina> necesarVitamine,
+                  List<Mineral> necesarMinerale,
+                  List<Vitamina> necesarVitamine,
                   Integer necesarFibre,
                   Integer necesarProteine,
                   Integer necesarCarbohidrati,

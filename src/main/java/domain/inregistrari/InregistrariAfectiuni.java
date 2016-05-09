@@ -9,9 +9,14 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class InregistrariAfectiuni {
     public static HashMap<String, Afectiune> inregistrariAfectiuni;
+
+    public HashMap<String,Afectiune> getInregistrariAfectiuni(){
+        return inregistrariAfectiuni;
+    }
 
     public InregistrariAfectiuni() {
         inregistrariAfectiuni = new HashMap<String, Afectiune>();
@@ -30,8 +35,8 @@ public class InregistrariAfectiuni {
         Aliment aliment1 = new Aliment("morcov",
                 informatiiNutritionale,
                 "e portocaliu",
-                (ArrayList<Vitamina>) Arrays.asList(vitaminaA, vitaminaB),
-                (ArrayList<Mineral>) Arrays.asList(mineralA, mineralB),
+                Arrays.asList(vitaminaA, vitaminaB),
+                Arrays.asList(mineralA, mineralB),
                 "prajeala",
                 new BigDecimal("150"),
                 new BigDecimal("150"));
@@ -39,8 +44,8 @@ public class InregistrariAfectiuni {
         Aliment aliment3 = new Aliment("gutuie",
                 informatiiNutritionale,
                 "e gutuie",
-                (ArrayList<Vitamina>) Arrays.asList(vitaminaA, vitaminaB),
-                (ArrayList<Mineral>) Arrays.asList(mineralA, mineralB),
+                Arrays.asList(vitaminaA, vitaminaB),
+                Arrays.asList(mineralA, mineralB),
                 "cruda",
                 new BigDecimal("150"),
                 new BigDecimal("150"));
@@ -48,12 +53,12 @@ public class InregistrariAfectiuni {
         Aliment aliment2 = new Aliment("rosie",
                 informatiiNutritionale,
                 "e rosie",
-                (ArrayList<Vitamina>) Arrays.asList(vitaminaA, vitaminaB),
-                (ArrayList<Mineral>) Arrays.asList(mineralA, mineralB),
+                Arrays.asList(vitaminaA, vitaminaB),
+                Arrays.asList(mineralA, mineralB),
                 "salata",
                 new BigDecimal("150"),
                 new BigDecimal("150"));
-        Masa masa1 = new Masa((ArrayList<Aliment>) Arrays.asList(aliment1, aliment2, aliment3), TipMasa.cina);
+        Masa masa1 = new Masa(Arrays.asList(aliment1, aliment2, aliment3), TipMasa.cina);
 
 
         Mineral mineral1 = new Mineral("mineral1",
@@ -86,12 +91,12 @@ public class InregistrariAfectiuni {
                 "ExcesVitamina4",
                 new BigDecimal("15"));
 
-        ArrayList<Vitamina> vitaminaList = (ArrayList<Vitamina>) Arrays.asList(vitamina1, vitamina2, vitamina3, vitamina4);
-        ArrayList<Mineral> mineralList = (ArrayList<Mineral>) Arrays.asList(mineral1, mineral2, mineral3, mineral4);
+        List<Vitamina> vitaminaList =  Arrays.asList(vitaminaA);
+        List<Mineral> mineralList = Arrays.asList(mineral1, mineral2, mineral3, mineral4);
 
         Supliment supliment1 = new Supliment(vitaminaList, mineralList, new Integer("250"), "Supliment1", producator1, new BigDecimal("25"));
 
-        Meniu meniu = new Meniu((ArrayList<Masa>) Arrays.asList(masa1), (ArrayList<Supliment>) Arrays.asList(supliment1), GrupaDeVarsta.A);
+        Meniu meniu = new Meniu(Arrays.asList(masa1), Arrays.asList(supliment1), GrupaDeVarsta.A);
 
         Simptom simptom1 = new Simptom("Doare",
                 IntensitateSimptom.mediu);
@@ -100,8 +105,8 @@ public class InregistrariAfectiuni {
 
         Afectiune afectiune1 = new Afectiune("Nume Afectiune 1",
                 "Descriere Afectiune 1",
-                (ArrayList<Simptom>) Arrays.asList(simptom1, simptom2),
-                (ArrayList<Meniu>) Arrays.asList(meniu));
+                Arrays.asList(simptom1, simptom2),
+                Arrays.asList(meniu));
 
         adaugaAfectiuneLaInregistrari(afectiune1);
     }
