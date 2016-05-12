@@ -90,16 +90,17 @@ public class Meniu {
         }
     }
 
-    public void afisareMasaDupaTip(String tipMasa) {
+    public boolean afisareMasaDupaTip(String tipMasa) {
         for (Masa masa : getMese()) {
             if (masa.getTipMasa().toString().equals(tipMasa)) {
                 System.out.println("S-a gasit masa cu tipul:" + tipMasa);
                 System.out.println("Se afiseaza informatii despre masa gasita:");
                 masa.afisare();
-                return;
+                return true;
             }
         }
         System.out.println("Nu s-a gasit masa in meniu cu tipul: " + tipMasa);
+        return false;
     }
 
     public void afisareInformatii(String informatii) {
@@ -142,7 +143,7 @@ public class Meniu {
         System.out.println("Totalul de informatii despre: " + informatii + " este:" + info);
     }
 
-    public void afisareInformatiiPeMasa(String tipMasa, String informatii) {
+    public boolean afisareInformatiiPeMasa(String tipMasa, String informatii) {
         BigDecimal info = new BigDecimal("0");
         if (Arrays.asList(TipMasa.mic_dejun.toString(), TipMasa.cina.toString(), TipMasa.pranz.toString()).contains(tipMasa)) {
             if (informatii.equals(TipInformatii.carbohidrati.toString())) {
@@ -187,38 +188,41 @@ public class Meniu {
                 }
             } else {
                 System.out.println("Nu exista acest tip de informatii");
-                return;
+                return false;
             }
         } else {
             System.out.println("Nu exista acest tip de masa");
-            return;
+            return false;
         }
         System.out.println("Totalul de informatii de tip: " + informatii + " pentru masa de tip: " + tipMasa + " este urmatorul: " + info);
+        return true;
     }
 
-    public void cautaAliment(String aliment) {
+    public boolean cautaAliment(String aliment) {
         if (aliment != null && aliment.matches("^[a-zA-Z]*$")) {
             for (Masa masa : getMese()) {
                 for (Aliment alimentDinMeniu : masa.getAlimente()) {
                     if (alimentDinMeniu.getNume().equals(aliment)) {
                         System.out.println("S-a gasit alimentul cautat in masa de tip:" + masa.getTipMasa().toString());
                         alimentDinMeniu.afisare();
+                        return true;
                     }
                 }
             }
         }
+        return false;
     }
 
-    public void cautaSuplimentDupaPret(BigDecimal minim, BigDecimal maxim) {
+    public boolean cautaSuplimentDupaPret(BigDecimal minim, BigDecimal maxim) {
         if (minim == null || maxim == null) {
             System.out.println("Nu s-au introdus corect datele de cautare! pret minim sau maxim null");
-            return;
+            return false;
         } else if (minim.compareTo(maxim) == 1) {
             System.out.println("S-au introdus date incorecte! minimul este > decat maximul");
-            return;
+            return false;
         } else if (minim.compareTo(maxim) == 0) {
             System.out.println("S-au introdus date incorecte! minimul = maximul");
-            return;
+            return false;
         }
 
         System.out.println("Se cauta suplimente dupa pretul minim: " + minim + " si pretul maxim:" + maxim);
@@ -229,38 +233,46 @@ public class Meniu {
             if ((supliment.getPret().compareTo(maxim) <= 0) && (supliment.getPret().compareTo(minim) >= 0)) {
                 supliment.afisare();
                 isFoundFlag = true;
+
             }
         }
 
         if (!isFoundFlag) {
             System.out.println("Nu s-a gasit supliment in intervalul dorit.");
+            return false;
+        }else{
+            return true;
         }
     }
 
-    public void cautaSuplimentDupaVitamina(String vitamina) {
+    public boolean cautaSuplimentDupaVitamina(String vitamina) {
         if (vitamina != null) {
             for (Supliment supliment : getSuplimente()) {
                 for (Vitamina vitmn : supliment.getVitamine()) {
                     if (vitmn.getNume().equals(vitamina)) {
                         System.out.println("Supliment care contine vitamina:" + vitamina);
                         supliment.afisare();
+                        return true;
                     }
                 }
             }
         }
+        return false;
     }
 
-    public void cautaSuplimentDupaMineral(String mineral) {
+    public boolean cautaSuplimentDupaMineral(String mineral) {
         if (mineral != null) {
             for (Supliment supliment : getSuplimente()) {
                 for (Mineral minrl : supliment.getMinerale()) {
                     if (minrl.getNume().equals(mineral)) {
                         System.out.println("Supliment care contine mineralul:" + mineral);
                         supliment.afisare();
+                        return true;
                     }
                 }
             }
         }
+        return false;
     }
 }
 
