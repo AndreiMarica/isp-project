@@ -9,6 +9,7 @@ import factory.VitamineFactory;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -122,6 +123,29 @@ public class TestMain {
         Afectiune afectiune = persoana.cautaAfectiune("Nume Afectiune 1");
         assertTrue(afectiune != null);
         assertTrue(afectiune.getMeniuri().get(0).cautaSuplimentDupaVitamina("VitaminaA"));
+    }
+
+    @Test
+    public void testSimptomAdaugaVitamina() {
+
+        new InregistrariAfectiuni();
+        Supliment supliment = new Supliment(new ArrayList<Vitamina>(), null, null, "NumeSupliment", null, null);
+        assertTrue(supliment.getVitamine().isEmpty());
+
+        supliment.adaugaVitamina(VitamineFactory.vitaminaA);
+        assertTrue(supliment.getVitamine().get(0) != null);
+        assertEquals(supliment.getVitamine().get(0), VitamineFactory.vitaminaA);
+    }
+
+    @Test
+    public void testSimptomAdaugaMineral() {
+        new InregistrariAfectiuni();
+        Supliment supliment = new Supliment(null, new ArrayList<Mineral>(), null, "NumeSupliment", null, null);
+        assertTrue(supliment.getMinerale().isEmpty());
+
+        supliment.adaugaMineral(MineraleFactory.mineral1);
+        assertTrue(supliment.getMinerale().get(0) != null);
+        assertEquals(supliment.getMinerale().get(0), MineraleFactory.mineral1);
     }
 
 }
